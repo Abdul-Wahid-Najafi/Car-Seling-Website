@@ -1,27 +1,14 @@
-@extends('layouts.clean')
+@props(['title'=>'' ,'footerLinks'=>''])
+<x-base-layout :$title> 
+    <x-layouts.header />
 
-
-{{-- @section('title','home') --}}
-
-@section('childContent')
-
-    @include('partials.header')
-
-    <!-- Home Slider -->
-
-    <!--/ Home Slider -->
-
-    @yield('content')
+    {{$slot}}
       
     
-   @hasSection('footer')
-       <footer>
-        @section('footer')
-            <a href="#">link 1</a>
-            <a href="#">link 2</a>
-        @show
+    <footer>
+        <a href="#">link 1</a>
+        <a href="#">link 2</a>
+        {{$footerLinks}}
     </footer>
-   @endif
-    
-    
-@endsection
+
+</x-base-layout>
