@@ -100,5 +100,6 @@
         </div>
       </section>
     </main>
+    
 
 </x-app-layout>
