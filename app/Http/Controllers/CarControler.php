@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use Illuminate\Http\Request;
 
 class CarControler extends Controller
@@ -33,7 +34,7 @@ class CarControler extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Car $car)
     {
         return view('car.show');
     }
@@ -41,7 +42,7 @@ class CarControler extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Car $car)
     {
         return view('car.edit');
     }
@@ -49,7 +50,7 @@ class CarControler extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Car $car)
     {
         //
     }
@@ -57,7 +58,7 @@ class CarControler extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Car $car)
     {
         //
     }

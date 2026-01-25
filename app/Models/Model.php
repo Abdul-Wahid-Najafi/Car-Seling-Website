@@ -2,9 +2,25 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Model extends EloquentModel
 {
-    //
+    use HasFactory, SoftDeletes;
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'maker_id'
+    ];
+ 
+    public function maker(){
+        return $this->belongsTo(maker::class);
+    }
+    public function cars(): HasMany{
+        return $this->hasMany(Car::class);
+    }
 }

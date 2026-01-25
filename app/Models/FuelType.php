@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FuelType extends Model
 {
@@ -29,5 +30,13 @@ class FuelType extends Model
 
     //if we put to null just one of them laravle thinks this dose not have exist
     //const UPDATED_AT = null; // now laravel think just created_at field exist
+
+    protected $fillable = [
+        'name'
+    ];
+
+    public function cars(): HasMany{
+        return $this->hasMany(Car::class);
+    }
 
 }
