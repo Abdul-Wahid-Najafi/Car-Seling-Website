@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Model extends EloquentModel
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     public $timestamps = false;
 
     protected $fillable = [

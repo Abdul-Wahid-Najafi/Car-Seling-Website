@@ -35,8 +35,8 @@ class CarControler extends Controller
      * Display the specified resource.
      */
     public function show(Car $car)
-    {
-        return view('car.show');
+    {   
+        return view('car.show',['car'=>$car]);
     }
 
     /**
@@ -64,6 +64,11 @@ class CarControler extends Controller
     }
 
     public function search(){
-        return view('car.search');
+        $query=Car::where('published_at','<', now())
+        ->orderBy('published_at','desc');
+
+        $carCount = $query->count();
+        $cars = $query->limit(4)->get();
+        return view('car.search',['cars'=>$cars,'carCount'=>$carCount]);
     }
 }

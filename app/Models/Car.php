@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+// use app/Models/Model.php;
+
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Car extends Model
 {
-    use SoftDeletes ;
+    use SoftDeletes, HasFactory;
     protected $fillable = [
         "maker_id",
         "model_id",
@@ -56,7 +58,7 @@ class Car extends Model
         return $this->hasOne(CarFeatures::class,"car_id");
     }
 
-    public function primaryImage(): HasOne{
+    public function primaryImage(){
         return $this->hasOne(CarImage::class)->oldestOfMany('position');
     }
 

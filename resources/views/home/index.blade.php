@@ -1,5 +1,5 @@
 <x-app-layout title="home">
-  
+
     <section class="hero-slider">
       <!-- Carousel wrapper -->
       <div class="hero-slides">
@@ -86,20 +86,21 @@
         </button>
       </div>
     </section>
-
+    
     <main>
+      <x-search-form />
       <section>
         <div class="container">
           <h2>Latest Added Cars</h2>
           <div class="car-items-listing">
-              @for($i =0;$i<15 ; $i++)
-                <x-car-item />
-              @endfor
+              @foreach ($cars  as  $car)
+                 
+              <x-car-item :$car/>
+              @endforeach
 
           </div>
         </div>
       </section>
     </main>
-    
 
 </x-app-layout>
