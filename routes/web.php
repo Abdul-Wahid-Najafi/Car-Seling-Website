@@ -10,6 +10,7 @@ Route::get('/',[homeController::class,'index'])->name('home');
 
 
 Route::get('/car/search',[CarControler::class,'search'])->name('car.search');
+Route::get('/car/watchlist',[CarControler::class,'watchlist'])->name('car.watchlist');
 Route::resource('car',CarControler::class); 
 
 Route::get('/singin',[signinController::class,'create'])->name('singin');
